@@ -101,6 +101,7 @@ export interface Theme {
     'stylesheet.calendar.header'?: {
         week: StyleProp<ViewStyle>;
     };
+    renderDayStyle?: (date: DateData, state: DayState) => TextStyle;
 }
 export declare type AgendaEntry = {
     name: string;
