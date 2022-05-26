@@ -145,8 +145,8 @@ const PeriodDay = (props: PeriodDayProps) => {
     if (marking) {
       return (
         <View style={[style.current.fillers, fillerStyles.fillerStyle]}>
-          <View style={[style.current.leftFiller, fillerStyles.leftFillerStyle]}/>
-          <View style={[style.current.rightFiller, fillerStyles.rightFillerStyle]}/>
+          <View style={[style.current.leftFiller, fillerStyles.leftFillerStyle, marking.leftPeriodStyle]}/>
+          <View style={[style.current.rightFiller, fillerStyles.rightFillerStyle, marking.rightPeriodStyle]}/>
         </View>
       );
     }
