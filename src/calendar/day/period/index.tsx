@@ -141,6 +141,14 @@ const PeriodDay = (props: PeriodDayProps) => {
     return {leftFillerStyle, rightFillerStyle, fillerStyle};
   }, [marking]);
 
+  const dayStyles: TextStyle = useMemo(() => {
+    let dayStyles: TextStyle = {};
+    if (theme?.renderDayStyle && dateData !== undefined && state !== undefined) {
+      dayStyles = theme.renderDayStyle(dateData, state);
+    }
+    return dayStyles;
+  },[dateData, state]);
+
   const renderFillers = () => {
     if (marking) {
       return (
@@ -175,7 +183,7 @@ const PeriodDay = (props: PeriodDayProps) => {
       <View style={style.current.wrapper}>
         {renderFillers()}
         <View style={containerStyle}>
-          <Text allowFontScaling={false} style={textStyle}>
+          <Text allowFontScaling={false} style={[textStyle, dayStyles]}>
             {String(children)}
           </Text>
           <Dot theme={theme} color={marking?.dotColor} marked={marking?.marked}/>
