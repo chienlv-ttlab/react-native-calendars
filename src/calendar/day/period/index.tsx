@@ -146,8 +146,18 @@ const PeriodDay = (props: PeriodDayProps) => {
     if (theme?.renderDayStyle && dateData !== undefined && state !== undefined) {
       dayStyles = theme.renderDayStyle(dateData, state);
     }
+
+    if (marking) {
+      if (markingStyle.textStyle) {
+        dayStyles = {
+          ...dayStyles,
+          ...(markingStyle.textStyle as Object), 
+        }
+      }
+    }
+
     return dayStyles;
-  },[dateData, state]);
+  },[dateData, state, marking]);
 
   const renderFillers = () => {
     if (marking) {
