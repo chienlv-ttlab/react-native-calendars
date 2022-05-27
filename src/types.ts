@@ -88,7 +88,7 @@ export interface Theme {
   weekVerticalMargin?: number;
   'stylesheet.calendar.header'?: {
     week: StyleProp<ViewStyle>;
-  };
+  } | object;
   renderDayStyle?: (date: DateData, state: DayState) => TextStyle;
 }
 
